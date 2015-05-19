@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>韓文學習網</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- full page-->
+    <link rel="stylesheet" type="text/css" href="fullpage/jquery.fullPage.css" />
+    <style media="screen">
+      body{
+        margin:0;
+		    padding:0;
+		    background: url(img/seoul.png) center center fixed no-repeat;
+		    -moz-background-size: cover;
+		    background-size: cover;
+      }
+      .content {
+        width: 70%;
+        height: 100%;
+        background-color:rgba(255,255,255, 0.7);
+        margin: 0 auto;
+        text-align: center;
+      }
+      .title{
+        width: 100%;
+        padding-top: 50px;
+        margin: 0 auto;
+        color: #000000;
+        font-weight: bolder;
+      }
+      .button-group li{
+        width: 50%; 
+      }
+      .button-group li, .button-group li a{
+        display: block;
+        float: left;
+        height: auto;
+      }
+      .button-group li a{
+        width: 100%;
+      }
+      #section{
+        position: fixed;
+        top: 45%;
+        left: 0;
+        list-style: none;
+        margin: 0; 
+        z-index:1;
+      }
+      #section a{
+        color: black;
+      }
+      .label{
+        padding:7px 16px 9px;
+        font-size: 20px;
+      }
+      @media screen and (max-width: 750px){
+        .button-group li a{
+          width: 100%;
+          margin: 0;
+          padding: 2.5% 0 2.5% 0;
+        }
+        .button-group li{
+          width: 100%; 
+          margin: 0;
+          padding: 0;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#">韓文學習網</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="active"><a class="open-link" data-reveal-id="pronunciation-table">發音表</a></li>
+            <div id="pronunciation-table" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+              <img src="img/table.jpg" alt="" />
+              <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+            </div>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <ul id="section">
+      <li><span class="secondary label"><a href="#firstPage">開場影片</a></span></li>
+      <li><span class="secondary label"><a href="#secondPage">發音教學</a></span></li>
+      <li><span class="secondary label"><a href="#thirdPage">文法教學</a></span></li>
+    </ul>
+
+    <div id="fullpage">
+      <div class="section">
+          <div class="flex-video"><iframe width="560" height="315" src="https://www.youtube.com/embed/G4dRbfNTVGQ" frameborder="0" allowfullscreen></iframe></div>
+      </div>
+      <div class="section">
+          <div class="content">
+            <div class="title"><h3>影片發音教學</h3></div>
+          </div>
+      </div>
+      <div class="section">
+          <div class="content">
+            <div class="title"><h3>基礎文法教學</h3></div>
+              <ul class="button-group">
+                <li><a href="#" class="button">嗨/謝謝你</a></li>
+                <li><a href="#" class="button">是/不是</a></li>
+                <li><a href="#" class="button">再見</a></li>
+                <li><a href="#" class="button">抱歉/不好意思</a></li>
+                <li><a href="#" class="button">...是...</a></li>
+                <li><a href="#" class="button">這是什麼?/這是...</a></li>
+                <li><a href="#" class="button">這個/那個/它</a></li>
+                <li><a href="#" class="button">很好吃/不好吃/我要開動了</a></li>
+                <li><a href="#" class="button">有/沒有</a></li>
+                <li><a href="#" class="button">請給我...</a></li>
+                <li><a href="#" class="button">誰?</a></li>
+                <li><a href="#" class="button">星期幾?</a></li>
+                <li><a href="#" class="button">今天幾號?</a></li>
+                <li><a href="#" class="button">什麼時候...?</a></li>
+              </ul>
+          </div>
+      </div>
+    </div>
+
+   <!-- foundation -->
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation/foundation.js"></script>
+    <script src="js/foundation/foundation.reveal.js"></script>
+
+    <!-- full page -->
+    <script src="fullpage/vendors/jquery.easings.min.js"></script>
+    <script type="text/javascript" src="fullpage/vendors/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="fullpage/jquery.fullPage.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          anchors: ['firstPage', 'secondPage', 'thirdPage', 'lastPage'],
+          menu: '#section',
+          scrollBar: true
+        });
+
+        $(".open-link").on('click',function(){
+          $("#pronunciation-table").foundation('reveal','open');
+        });
+      });
+    </script>
+  </body>
+</html>
