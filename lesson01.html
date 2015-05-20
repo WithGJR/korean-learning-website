@@ -19,17 +19,19 @@
       .content {
         width: 70%;
         height: 100%;
-        background-color:rgba(255,255,255, 0.7);
+        background-color:rgba(255,255,255, 0.9);
         margin: 0 auto;
+        padding-left: 10%;
+        padding-right: 10%;
         text-align: center;
       }
-      .title{
+    /*  .title{
         width: 100%;
-        padding-top: 50px;
+        padding: 50px 0 0 0;
         margin: 0 auto;
         color: #000000;
         font-weight: bolder;
-      }
+      }*/
       .button-group li{
         width: 50%; 
       }
@@ -51,6 +53,9 @@
       }
       #section a{
         color: black;
+      }
+      .slide{
+        text-align: left;
       }
       .label{
         padding:7px 16px 9px;
@@ -76,7 +81,7 @@
       <nav class="top-bar" data-topbar role="navigation">
         <ul class="title-area">
           <li class="name">
-            <h1><a href="#">韓文學習網</a></h1>
+            <h1><a href="index.html">韓文學習網</a></h1>
           </li>
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
@@ -93,43 +98,46 @@
       </nav>
     </div>
 
-    <ul id="section">
-      <li><span class="secondary label"><a href="#firstPage">開場影片</a></span></li>
-      <li><span class="secondary label"><a href="#secondPage">發音教學</a></span></li>
-      <li><span class="secondary label"><a href="#thirdPage">文法教學</a></span></li>
-    </ul>
+    <!-- <div id="fullpage"> -->
+      <div class="section">
+          <div class="content">
+            <div class="slide">
+              <h4>안녕하세요 你好</h4>
+              <p>안녕하세요. = 你好 / 哈囉 / 你過得如何?/ 早安 / 晚安 / 等等...</p>
+              <p>안녕+하세요 = 안녕하세요. </p>
 
-    <div id="fullpage">
-      <div class="section">
-          <div class="flex-video"><iframe width="560" height="315" src="https://www.youtube.com/embed/G4dRbfNTVGQ" frameborder="0" allowfullscreen></iframe></div>
-      </div>
-      <div class="section">
-          <div class="content">
-            <div class="title"><h3>影片發音教學</h3></div>
-          </div>
-      </div>
-      <div class="section">
-          <div class="content">
-            <div class="title"><h3>基礎文法教學</h3></div>
-              <ul class="button-group">
-                <li><a href="lesson01.html" class="button">嗨/謝謝你</a></li>
-                <li><a href="#" class="button">是/不是</a></li>
-                <li><a href="#" class="button">再見</a></li>
-                <li><a href="#" class="button">抱歉/不好意思</a></li>
-                <li><a href="#" class="button">...是...</a></li>
-                <li><a href="#" class="button">這是什麼?/這是...</a></li>
-                <li><a href="#" class="button">這個/那個/它</a></li>
-                <li><a href="#" class="button">很好吃/不好吃/我要開動了</a></li>
-                <li><a href="#" class="button">有/沒有</a></li>
-                <li><a href="#" class="button">請給我...</a></li>
-                <li><a href="#" class="button">誰?</a></li>
-                <li><a href="#" class="button">星期幾?</a></li>
-                <li><a href="#" class="button">今天幾號?</a></li>
-                <li><a href="#" class="button">什麼時候...?</a></li>
+              <p>[an-nyeong]</p>
+              <p>안녕 = 幸福、和平、健康。</p>
+              <p>[ha-se-yo]</p>
+              <p>하세요 = 原形：하다，為「做...」的意思。하세요 為 하다 的敬語形式。此處的意思為「您是否...？」、「請您...」。</p>
+
+              <p>안녕하세요 是韓文中最常見的打招呼方式，此外 안녕하세요 爲敬語（존댓말 [jondaetmal]）。</p>
+
+              <p>當某人用 안녕하세요 跟你打招呼時，你可以直接用 안녕하세요 答覆他。</p>
+
+              <p>簡單會話：</p>
+              <ul>
+                <li>A: 안녕하세요. [annyeong-haseyo] = Hello.</li>
+                <li>B: 안녕하세요. [annyeong-haseyo] = Hi.</li>
               </ul>
+            </div>
+
+            <div class="slide">
+              <h4>감사합니다 謝謝你</h4>
+              <p>감사 + 합니다 = 감사합니다. [gam-sa] [hap-ni-da] </p>
+
+              <p>감사 = 感謝 </p>
+              <p>합니다 = 做</p>
+
+              <p>감사합니다 是表達「謝謝你」做正式的方式。</p>
+
+              <p>감사 為感謝、感激的意思。 </p>
+
+              <p>합니다 為 「我做...」或是 「我正在做...」之意，是敬語。兩者合併後的意思為：「謝謝你」。 </p>
+            </div>
           </div>
       </div>
-    </div>
+    <!-- </div> -->
 
    <!-- foundation -->
     <script src="js/vendor/jquery.js"></script>
