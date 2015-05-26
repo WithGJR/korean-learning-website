@@ -70,6 +70,8 @@
         }
       }
     </style>
+    <script src="js/react/build/react.js"></script>
+    <script src="js/react/build/JSXTransformer.js"></script>
   </head>
   <body>
     <div class="fixed">
@@ -108,27 +110,61 @@
             <div class="title"><h3>影片發音教學</h3></div>
           </div>
       </div>
-      <div class="section">
-          <div class="content">
-            <div class="title"><h3>基礎文法教學</h3></div>
-              <ul class="button-group">
-                <li><a href="lesson01.html" class="button">嗨/謝謝你</a></li>
-                <li><a href="#" class="button">是/不是</a></li>
-                <li><a href="#" class="button">再見</a></li>
-                <li><a href="#" class="button">抱歉/不好意思</a></li>
-                <li><a href="#" class="button">...是...</a></li>
-                <li><a href="#" class="button">這是什麼?/這是...</a></li>
-                <li><a href="#" class="button">這個/那個/它</a></li>
-                <li><a href="#" class="button">很好吃/不好吃/我要開動了</a></li>
-                <li><a href="#" class="button">有/沒有</a></li>
-                <li><a href="#" class="button">請給我...</a></li>
-                <li><a href="#" class="button">誰?</a></li>
-                <li><a href="#" class="button">星期幾?</a></li>
-                <li><a href="#" class="button">今天幾號?</a></li>
-                <li><a href="#" class="button">什麼時候...?</a></li>
+      <div class="section" id="lesson"></div>
+      <script type="text/jsx">
+        var LessonItem = React.createClass({
+          render: function(){
+            return (
+              <li><a href={this.props.url} className="button">{this.props.lesson_name}</a></li>
+            );
+          }
+        });
+        var LessonItems = React.createClass({
+          render: function(){
+            var items = this.props.items.map(function(item){
+              return (
+                <LessonItem url={item.url} lesson_name={item.lesson_name} />
+              );
+            });
+
+            return (
+              <ul className="button-group">
+                {items}
               </ul>
-          </div>
-      </div>
+            );
+          }
+        });
+        var LessonList = React.createClass({
+          render: function(){
+            return (
+              <div className="content">
+                <div className="title"><h3>基礎文法教學</h3></div>
+                <LessonItems items={this.props.lesson_infos} />
+              </div>
+            );
+          }
+        });
+        var lessonInfos = [
+          {lesson_name: "嗨/謝謝你", url: "lessons/lesson01.html"},
+          {lesson_name: "是/不是", url: ""},
+          {lesson_name: "再見", url: ""},
+          {lesson_name: "抱歉/不好意思", url: ""},
+          {lesson_name: "...是...", url: ""},
+          {lesson_name: "這是什麼?/這是...", url: ""},
+          {lesson_name: "這個/那個/它", url: ""},
+          {lesson_name: "很好吃/不好吃/我要開動了", url: ""},
+          {lesson_name: "有/沒有", url: ""},
+          {lesson_name: "請給我...", url: ""},
+          {lesson_name: "誰?", url: ""},
+          {lesson_name: "星期幾?", url: ""},
+          {lesson_name: "今天幾號?", url: ""},
+          {lesson_name: "什麼時候...?", url: ""}
+        ];
+        React.render(
+          <LessonList lesson_infos={lessonInfos} />,
+          document.getElementById('lesson')
+        );
+      </script>
     </div>
 
    <!-- foundation -->
