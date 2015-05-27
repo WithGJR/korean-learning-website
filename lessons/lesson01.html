@@ -15,7 +15,7 @@
 		    -moz-background-size: cover;
 		    background-size: cover;
       }
-      .content {
+      #content {
         width: 70%;
         height: auto;
         background-color:rgba(255,255,255, 0.9);
@@ -25,39 +25,25 @@
         padding-right: 8%;
         padding-bottom: 5%;
       }
-      .button-group li{
-        width: 50%; 
-      }
-      .button-group li, .button-group li a{
-        display: block;
-        float: left;
-        height: auto;
-      }
-      .button-group li a{
-        width: 100%;
-      }
       .label{
         padding:7px 16px 9px;
         font-size: 20px;
       }
+      .show{
+        display: true;
+      }
+      .notShow{
+        display: none;
+      }
       @media screen and (max-width: 750px){
-        .button-group li a{
-          width: 100%;
-          margin: 0;
-          padding: 2.5% 0 2.5% 0;
-        }
-        .button-group li{
-          width: 100%; 
-          margin: 0;
-          padding: 0;
-          height: auto;
-        }
-        .content{
+        #content{
           width: 90%;
           padding-top: 15%;
         }
       }
     </style>
+    <script src="../js/react/build/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
   </head>
   <body>
     <div class="fixed">
@@ -81,39 +67,10 @@
       </nav>
     </div>
 
-    <div class="content">
-        <h4><span class="label info">안녕하세요 你好</span></h4>
-        <p>안녕하세요 你好 / 哈囉 / 你過得如何?/ 早安 / 晚安 / 等等...</p>
-        <p>안녕+하세요 = 안녕하세요. </p>
-
-        <p>[an-nyeong]</p>
-        <p>안녕 = 幸福、和平、健康。</p>
-        <p>[ha-se-yo]</p>
-        <p>하세요 = 原形：하다，為「做...」的意思。하세요 為 하다 的敬語形式。此處的意思為「您是否...？」、「請您...」。</p>
-
-        <p>안녕하세요 是韓文中最常見的打招呼方式，此外 안녕하세요 爲敬語（존댓말 [jondaetmal]）。</p>
-
-        <p>當某人用 안녕하세요 跟你打招呼時，你可以直接用 안녕하세요 答覆他。</p>
-
-        <p><strong>簡單會話：</strong></p>
-        <ul>
-          <li>A: 안녕하세요. [annyeong-haseyo] = Hello.</li>
-          <li>B: 안녕하세요. [annyeong-haseyo] = Hi.</li>
-        </ul>
-
-        <h4><span class="label info">감사합니다 謝謝你</span></h4>
-        <p>감사 + 합니다 = 감사합니다. [gam-sa] [hap-ni-da] </p>
-
-        <p>감사 = 感謝 </p>
-        <p>합니다 = 做</p>
-
-        <p>감사합니다 是表達「謝謝你」做正式的方式。</p>
-
-        <p>감사 為感謝、感激的意思。 </p>
-
-        <p>합니다 為 「我做...」或是 「我正在做...」之意，是敬語。兩者合併後的意思為：「謝謝你」。 </p>
-    </div>
-
+    <div id="content"></div>
+    <script type="text/javascript" src="../js/jsx/post/01.js"></script>
+    <script type="text/javascript" src="../js/jsx/lesson_page.js"></script>
+    
    <!-- foundation -->
     <script src="../js/vendor/jquery.js"></script>
     <script src="../js/foundation/foundation.js"></script>
