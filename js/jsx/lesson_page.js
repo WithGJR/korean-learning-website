@@ -16,7 +16,7 @@ var Paragraph = React.createClass({displayName: "Paragraph",
 
   	return (
   		React.createElement("div", {className: "paragraph"}, 
-        React.createElement("h4", null, React.createElement("a", {href: "", onClick: this.handleClick}, React.createElement("span", {className: "label info"}, this.props.title))), 
+        React.createElement("h4", null, React.createElement("a", {href: "", id: this.props.id, onClick: this.handleClick}, React.createElement("div", {className: "label info"}, this.props.title))), 
         React.createElement("div", {className: "paragraph-content "+this.state.show, dangerouslySetInnerHTML: {__html: rawMarkup}})
       )
   	);
@@ -25,10 +25,9 @@ var Paragraph = React.createClass({displayName: "Paragraph",
 
 var Paragraphs = React.createClass({displayName: "Paragraphs",
   render: function() {
-  	var paragraphs = this.props.post.map(function(paragraph) {
-      return(
-        React.createElement(Paragraph, {title: paragraph.title, content: paragraph.content})
-      );
+    var paragraphs = [];
+  	this.props.post.forEach(function(paragraph, id, array) {
+        paragraphs.push(React.createElement(Paragraph, {id: id, title: paragraph.title, content: paragraph.content}));
   	});
   	return (
   	  React.createElement("div", {id: "paragraphs"}, 

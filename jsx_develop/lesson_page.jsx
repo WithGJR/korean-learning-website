@@ -16,7 +16,7 @@ var Paragraph = React.createClass({
 
   	return (
   		<div className="paragraph">
-        <h4><a href="" onClick={this.handleClick}><span className="label info">{this.props.title}</span></a></h4>
+        <h4><a href="" id={this.props.id} onClick={this.handleClick}><div className="label info">{this.props.title}</div></a></h4>
         <div className={"paragraph-content "+this.state.show} dangerouslySetInnerHTML={{__html: rawMarkup}} />
       </div>
   	);
@@ -25,10 +25,9 @@ var Paragraph = React.createClass({
 
 var Paragraphs = React.createClass({
   render: function() {
-  	var paragraphs = this.props.post.map(function(paragraph) {
-      return(
-        <Paragraph title={paragraph.title} content={paragraph.content} />
-      );
+    var paragraphs = [];
+  	this.props.post.forEach(function(paragraph, id, array) {
+        paragraphs.push(<Paragraph id={id} title={paragraph.title} content={paragraph.content} />);
   	});
   	return (
   	  <div id="paragraphs">
