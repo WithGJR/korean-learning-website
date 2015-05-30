@@ -1,0 +1,1 @@
+var post = [{ title: "再見",content: "\n還記得怎麼用韓文說「你好」嗎？\n\n안녕하세요. [an-nyeong-ha-se-yo] \n\n안녕 [an-nyeong] = 平安、健康\n\n當你用韓文說「再見」時，有兩種狀況，而兩者都包括「안녕」這個字。\n\n- 當你正要離開，而其他人並沒有要離開時，你可以說：안녕히 계세요. [an-nyeong-hi gye-se-yo]\n- 你要繼續待著，而其他人要離開時，你可以說：안녕히 가세요. [an-nyeong-hi ga-se-yo] \n"}]

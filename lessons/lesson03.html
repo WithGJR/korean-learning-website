@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宇宙通用語教學</title>
+    <link href="../img/icon.ico" rel="SHORTCUT ICON">
+    <link rel="stylesheet" href="../css/foundation.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style media="screen">
+      body{
+        margin:0;
+        padding:0;
+        background: url(../img/seoul.png) center center fixed no-repeat;
+        -moz-background-size: cover;
+        background-size: cover;
+      }
+      #content {
+        width: 70%;
+        height: 100%;
+        background-color:rgba(255,255,255, 0.9);
+        margin: 0 auto;
+        padding-top: 5%;
+        padding-left: 8%;
+        padding-right: 8%;
+        padding-bottom: 5%;
+      }
+      .label{
+        padding:7px 16px 9px;
+        font-size: 20px;
+        word-wrap:break-word;
+        width: 100%;
+        height: auto;
+      }
+      .show{
+        display: true;
+      }
+      .notShow{
+        display: none;
+      }
+      #footer{
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        background-color: rgba(0,0,0, 0.7);
+        font-size: 20px;
+        color: white;
+      }
+      @media screen and (max-width: 750px){
+        #content{
+          width: 90%;
+          padding-top: 15%;
+        }
+        .label{
+          font-size: 15px;
+        }
+        #footer{
+          display: none;
+        }
+      }
+    </style>  
+    <script src="../js/react/build/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+  </head>
+  <body>
+    <div class="fixed">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="../index.html">宇宙通用語教學</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="active"><a class="open-link" data-reveal-id="pronunciation-table">發音表</a></li>
+            <div id="pronunciation-table" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+              <img src="../img/table.jpg" alt="" />
+              <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+            </div>
+          </ul>
+        </section>
+      </nav>
+    </div>
+    <ol class="joyride-list" data-joyride>
+      <li data-id="0" data-text="我瞭解了" data-options="tip_location: bottom; prev_button: false">
+        <p>點擊標題可以縮放內容</p>
+      </li>
+    </ol>
+    <div id="content"></div>
+    <div id="footer">
+      Copyright © Universe Language Learning. All Rights Reserved.
+    </div>
+    <script type="text/javascript" src="../js/jsx/post/03.js"></script>
+    <script type="text/javascript" src="../js/jsx/lesson_page.js"></script>
+    
+   <!-- foundation -->
+    <script src="../js/vendor/jquery.js"></script>
+    <script src="../js/foundation/foundation.js"></script>
+    <script src="../js/foundation/foundation.reveal.js"></script>
+    <script src="../js/foundation/foundation.joyride.js"></script>
+
+    <script type="text/javascript">
+      $(document).foundation('joyride', 'start');
+      $(".open-link").on('click',function(){
+        $("#pronunciation-table").foundation('reveal','open');
+      });
+    </script>
+  </body>
+</html>
