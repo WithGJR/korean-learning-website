@@ -17,7 +17,7 @@
 		    -moz-background-size: cover;
 		    background-size: cover;
       }
-      .content {
+      #question {
         width: 70%;
         height: 100%;
         background-color:rgba(255,255,255, 0.7);
@@ -80,16 +80,12 @@
           padding: 0;
           height: auto;
         }
-        .content{
-          width: 90%;
-        }
         #footer{
           display: none;
         }
       }
     </style>
     <script src="js/react/build/react.js"></script>
-    <script src="js/react/build/JSXTransformer.js"></script>
   </head>
   <body>
     <div class="fixed">
@@ -115,56 +111,13 @@
     </div>
 
     <div id="fullpage">
-      <div class="section" id="lesson"></div>
+      <div class="section" id="question"></div>
       <script type="text/javascript">
         var questions = [
-          {title: "test", options: ["A", "B", "C"]}
+          {title: "test", options: ["A", "B", "C"], rightAnswer: "A"}
         ];
       </script>
-      <script type="text/jsx">
-        var Question = React.createClass({
-          getInitialState: function() {
-            return {rightOrNot: null};
-          },
-          hangleAnswer: function(val) {
-            alert(val);
-          },
-          render: function() {
-            var answerSituationMsg = "";
-            if (this.state.rightOrNot != null) {
-              if (this.state.rightOrNot) {
-                answerSituationMsg = "You're right;";
-              }else{
-                answerSituationMsg = "You're wrong.";
-              }
-            }
-
-            return (
-              <div>
-                <h2>{this.props.content.title}</h2>
-                <select value={this.props.content.options} onChange={this.hangleAnswer} />
-                {answerSituationMsg}
-              </div>
-            );
-          }
-        });
-        var Questions = React.createClass({
-          render: function() {
-            var questions = this.props.questions.map(function(question) {
-              return (
-                <Question content={question} />
-              );
-            });
-
-            return (
-              <div className="section">
-                {questions}
-              </div>
-            );
-          }
-        });
-        React.render(<Questions questions={questions} />, document.getElementById("lesson"));
-      </script>
+      <script type="text/javascript" src="js/jsx/test.js"></script>
 
       <div id="footer">
         Copyright © Universe Language Learning. All Rights Reserved.
