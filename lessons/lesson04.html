@@ -52,6 +52,7 @@
       @media screen and (max-width: 750px){
         #content{
           width: 90%;
+          height: auto;
           padding-top: 15%;
         }
         .label{
@@ -108,6 +109,12 @@
       $(document).foundation('joyride', 'start');
       $(".open-link").on('click',function(){
         $("#pronunciation-table").foundation('reveal','open');
+      });
+
+      $(document).ready(function(){
+        if ($("#content").height() <= $(window).height()) {
+          $("#content").css("height", "100%");
+        };
       });
     </script>
   </body>

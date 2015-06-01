@@ -109,6 +109,12 @@
       $(".open-link").on('click',function(){
         $("#pronunciation-table").foundation('reveal','open');
       });
+
+      $(document).ready(function(){
+        if ($("#content").height() <= $(window).height()) {
+          $("#content").css("height", "100%");
+        };
+      });
     </script>
   </body>
 </html>
