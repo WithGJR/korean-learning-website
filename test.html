@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>宇宙通用語教學</title>
+    <link href="img/icon.ico" rel="SHORTCUT ICON">
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- full page-->
+    <link rel="stylesheet" type="text/css" href="fullpage/jquery.fullPage.css" />
+    <style media="screen">
+      body{
+        margin:0;
+		    padding:0;
+		    background: url(img/seoul.png) center center fixed no-repeat;
+		    -moz-background-size: cover;
+		    background-size: cover;
+      }
+      .content {
+        width: 70%;
+        height: 100%;
+        background-color:rgba(255,255,255, 0.7);
+        margin: 0 auto;
+        text-align: center;
+      }
+      .title{
+        width: 100%;
+        padding-top: 50px;
+        margin: 0 auto;
+        color: #000000;
+        font-weight: bolder;
+      }
+      .button-group li{
+        width: 50%;
+      }
+      .button-group li, .button-group li a{
+        display: block;
+        float: left;
+        height: auto;
+      }
+      .button-group li a{
+        width: 100%;
+      }
+      #section{
+        position: fixed;
+        top: 45%;
+        left: 0;
+        list-style: none;
+        margin: 0;
+        z-index:1;
+      }
+      #section a{
+        color: black;
+      }
+      .label{
+        padding:7px 16px 9px;
+        font-size: 20px;
+      }
+      #footer{
+	      width: 100%;
+        height: auto;
+        margin: 0 auto;
+	      position: fixed;
+        text-align: center;
+	      bottom: 0;
+	      background-color: rgba(0,0,0, 0.7);
+        font-size: 20px;
+        color: white;
+      }
+      @media screen and (max-width: 750px){
+        .button-group li a{
+          width: 100%;
+          margin: 0;
+          padding: 2.5% 0 2.5% 0;
+        }
+        .button-group li{
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          height: auto;
+        }
+        .content{
+          width: 90%;
+        }
+        #footer{
+          display: none;
+        }
+      }
+    </style>
+    <script src="js/react/build/react.js"></script>
+    <script src="js/react/build/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div class="fixed">
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="index.html">宇宙通用語教學</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <li><a href="#">驗收學習成效</a></li>
+            <li class="active"><a class="open-link" data-reveal-id="pronunciation-table">發音表</a></li>
+            <div id="pronunciation-table" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+              <img src="img/table.jpg" alt="" />
+              <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+            </div>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div id="fullpage">
+      <div class="section" id="lesson"></div>
+      <script type="text/javascript">
+        var questions = [
+          {title: "test", options: ["A", "B", "C"]}
+        ];
+      </script>
+      <script type="text/jsx">
+        var Question = React.createClass({
+          getInitialState: function() {
+            return {rightOrNot: null};
+          },
+          hangleAnswer: function(val) {
+            alert(val);
+          },
+          render: function() {
+            var answerSituationMsg = "";
+            if (this.state.rightOrNot != null) {
+              if (this.state.rightOrNot) {
+                answerSituationMsg = "You're right;";
+              }else{
+                answerSituationMsg = "You're wrong.";
+              }
+            }
+
+            return (
+              <div>
+                <h2>{this.props.content.title}</h2>
+                <select value={this.props.content.options} onChange={this.hangleAnswer} />
+                {answerSituationMsg}
+              </div>
+            );
+          }
+        });
+        var Questions = React.createClass({
+          render: function() {
+            var questions = this.props.questions.map(function(question) {
+              return (
+                <Question content={question} />
+              );
+            });
+
+            return (
+              <div className="section">
+                {questions}
+              </div>
+            );
+          }
+        });
+        React.render(<Questions questions={questions} />, document.getElementById("lesson"));
+      </script>
+
+      <div id="footer">
+        Copyright © Universe Language Learning. All Rights Reserved.
+      </div>
+    </div>
+
+   <!-- foundation -->
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation/foundation.js"></script>
+    <script src="js/foundation/foundation.reveal.js"></script>
+
+    <!-- full page -->
+    <script src="fullpage/vendors/jquery.easings.min.js"></script>
+    <script type="text/javascript" src="fullpage/vendors/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="fullpage/jquery.fullPage.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          anchors: ['firstPage', 'secondPage', 'thirdPage', 'lastPage'],
+          menu: '#section',
+          scrollBar: true
+        });
+
+        $(".open-link").on('click',function(){
+          $("#pronunciation-table").foundation('reveal','open');
+        });
+      });
+    </script>
+  </body>
+</html>
