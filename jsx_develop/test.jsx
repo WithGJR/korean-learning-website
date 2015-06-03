@@ -8,6 +8,7 @@ var Question = React.createClass({
     }else{
       this.setState({rightOrNot: false, msg: "label alert"});
     }
+
   },
   render: function() {
     var answerSituationMsg = "";
@@ -16,22 +17,19 @@ var Question = React.createClass({
     }
 
     var options = [];
-    this.props.content.options.forEach(function(option) {
+    this.props.content.options.forEach(function(option, index) {
       options.push(
-        <div>
-          <input type="radio" name="option" value={option}>{option}</input><br />
-        </div>
+        <div><input type="radio" name="option" value={index}>{option}</input><br /></div>
       );
     });
 
     return (
-      <div>
+      <div className="slide">
         <h1 className="title">{this.props.content.title}</h1>
         <form onChange={this.handleAnswer}>
-          {options}
+          <div className="center">{options}</div>
         </form>
-
-        <h3><span className={this.state.msg}>{answerSituationMsg}</span></h3>
+        <h4><span className={this.state.msg}>{answerSituationMsg}</span></h4>
       </div>
     );
   }
@@ -46,7 +44,7 @@ var Questions = React.createClass({
     });
 
     return (
-      <div className="section">
+      <div>
         {questions}
       </div>
     );

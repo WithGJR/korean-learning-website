@@ -8,6 +8,7 @@ var Question = React.createClass({displayName: "Question",
     }else{
       this.setState({rightOrNot: false, msg: "label alert"});
     }
+
   },
   render: function() {
     var answerSituationMsg = "";
@@ -16,22 +17,19 @@ var Question = React.createClass({displayName: "Question",
     }
 
     var options = [];
-    this.props.content.options.forEach(function(option) {
+    this.props.content.options.forEach(function(option, index) {
       options.push(
-        React.createElement("div", null, 
-          React.createElement("input", {type: "radio", name: "option", value: option}, option), React.createElement("br", null)
-        )
+        React.createElement("div", null, React.createElement("input", {type: "radio", name: "option", value: index}, option), React.createElement("br", null))
       );
     });
 
     return (
-      React.createElement("div", null, 
+      React.createElement("div", {className: "slide"}, 
         React.createElement("h1", {className: "title"}, this.props.content.title), 
         React.createElement("form", {onChange: this.handleAnswer}, 
-          options
+          React.createElement("div", {className: "center"}, options)
         ), 
-
-        React.createElement("h3", null, React.createElement("span", {className: this.state.msg}, answerSituationMsg))
+        React.createElement("h4", null, React.createElement("span", {className: this.state.msg}, answerSituationMsg))
       )
     );
   }
@@ -46,7 +44,7 @@ var Questions = React.createClass({displayName: "Questions",
     });
 
     return (
-      React.createElement("div", {className: "section"}, 
+      React.createElement("div", null, 
         questions
       )
     );
