@@ -115,18 +115,12 @@
 
     <ul id="section">
       <li><span class="secondary label"><a href="#firstPage">開場影片</a></span></li>
-      <li><span class="secondary label"><a href="#secondPage">發音教學</a></span></li>
-      <li><span class="secondary label"><a href="#thirdPage">文法教學</a></span></li>
+      <li><span class="secondary label"><a href="#secondPage">文法教學</a></span></li>
     </ul>
 
     <div id="fullpage">
       <div class="section">
           <div class="flex-video"><iframe width="560" height="315" src="https://www.youtube.com/embed/G4dRbfNTVGQ" frameborder="0" allowfullscreen></iframe></div>
-      </div>
-      <div class="section">
-          <div class="content">
-            <div class="title"><h3>影片發音教學</h3></div>
-          </div>
       </div>
       <div class="section" id="lesson"></div>
       <script type="text/javascript">
@@ -137,14 +131,14 @@
           {lesson_name: "抱歉/不好意思", url: "lessons/lesson04.html"},
           {lesson_name: "...是...", url: "lessons/lesson05.html"},
           {lesson_name: "這是什麼?/這是...", url: "lessons/lesson06.html"},
-          {lesson_name: "這個/那個/它", url: ""},
-          {lesson_name: "有/沒有", url: ""},
-          {lesson_name: "很好吃/不好吃/我要開動了", url: ""},
-          {lesson_name: "請給我...", url: ""},
-          {lesson_name: "誰?", url: ""},
-          {lesson_name: "星期幾?", url: ""},
-          {lesson_name: "今天幾號?", url: ""},
-          {lesson_name: "什麼時候...?", url: ""}
+          {lesson_name: "這個/那個/它", url: "lessons/lesson07.html"},
+          {lesson_name: "有/沒有", url: "lessons/lesson08.html"},
+          {lesson_name: "很好吃/不好吃/我要開動了", url: "lessons/lesson09.html"},
+          {lesson_name: "請給我...", url: "lessons/lesson10.html"},
+          {lesson_name: "誰?", url: "lessons/lesson11.html"},
+          {lesson_name: "星期幾?", url: "lessons/lesson12.html"},
+          {lesson_name: "今天幾號?", url: "lessons/lesson13.html"},
+          {lesson_name: "什麼時候...?", url: "lessons/lesson14.html"}
         ];
       </script>
       <script type="text/javascript" src="js/jsx/lesson_list.js"></script>
@@ -167,7 +161,7 @@
     <script type="text/javascript">
       $(document).ready(function() {
         $('#fullpage').fullpage({
-          anchors: ['firstPage', 'secondPage', 'thirdPage', 'lastPage'],
+          anchors: ['firstPage', 'secondPage', 'lastPage'],
           menu: '#section',
           scrollBar: true
         });

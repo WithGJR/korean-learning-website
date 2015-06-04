@@ -20,7 +20,7 @@
       #question {
         width: 70%;
         height: 100%;
-        background-color:rgba(255,255,255, 0.7);
+        background-color:rgba(255,255,255, 0.8);
         margin: 0 auto;
         text-align: center;
       }
@@ -61,6 +61,11 @@
       .label{
         padding:7px 16px 9px;
         font-size: 20px;
+      }
+      #report{
+        text-align: center;
+        width: 70%;
+        margin: 0 auto;
       }
       #footer{
 	      width: 100%;
@@ -116,7 +121,7 @@
     </div>
 
     <div id="fullpage">
-      <div class="section" id="question"></div>
+      <div id="question"></div>
       <script type="text/javascript">
         var questions = [
           {
@@ -129,12 +134,41 @@
             rightAnswer: 0
           },
           {
-            title: "請選擇回答與問句相配的答案",
+            title: "請選擇與「你喜歡咖啡嗎？」相配的回答",
             options: [
                        "네. 좋아해요",
-                       "죄송합니다"
+                       "죄송합니다",
+                       "이거 맛있어요"
                      ],
             rightAnswer: 0
+          },
+          {
+            title: "안녕히 계세요 跟 안녕히 가세요 的差別是什麼？",
+            options: [
+                       "你留著，其他人要走時，你跟對方說再見 / 你要走，其他人留著時，你跟對方說再見",
+                       "你要走，其他人留著時，你跟對方說再見 / 你留著，其他人要走時，你跟對方說再見",
+                       "兩者沒有差別"
+                     ],
+            rightAnswer: 1
+          },
+          {
+            title: "「對不起」的韓文是什麼？",
+            options: [
+                       "몇 월 며칠이에요?",
+                       "맛없어요",
+                       "죄송합니다"
+                     ],
+            rightAnswer: 2
+
+          },
+          {
+            title: "이거 ABC예요. 翻譯成中文是什麼？",
+            options: [
+                       "我的名字是 ABC",
+                       "這是 ABC",
+                       "我喜歡 ABC"
+                     ],
+            rightAnswer: 1
           }
         ];
       </script>
