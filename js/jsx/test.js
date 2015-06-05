@@ -62,7 +62,7 @@ var answerSituation = function() {
 
 var Question = React.createClass({displayName: "Question",
   getInitialState: function() {
-    return {rightOrNot: null, msg: ""};
+    return {rightOrNot: null, msg: "", haveClicked: false};
   },
   handleAnswer: function(event) {
     if(event.target.value == this.props.content.rightAnswer){
@@ -73,18 +73,20 @@ var Question = React.createClass({displayName: "Question",
       answerCorrectness[this.props.questionNumber] = false;
     }
     finishedQuestion[this.props.questionNumber] = true;
+    this.setState({haveClicked: true});
     this.props.update();
   },
   render: function() {
     var answerSituationMsg = "";
     if (this.state.rightOrNot != null) {
-      answerSituationMsg = this.state.rightOrNot ? "你答對了" : "你答錯了";
+      answerSituationMsg = this.state.rightOrNot ? "你答對了" : "你答錯了。正確答案： "+String(this.props.content.rightAnswer+1);
     }
 
     var options = [];
+    var disabled = this.state.haveClicked ? true : false;
     this.props.content.options.forEach(function(option, index) {
       options.push(
-        React.createElement("div", null, React.createElement("input", {type: "radio", name: "option", value: index}, option), React.createElement("br", null))
+        React.createElement("div", null, React.createElement("input", {type: "radio", name: "option", disabled: disabled, value: index}, option), React.createElement("br", null))
       );
     });
 
