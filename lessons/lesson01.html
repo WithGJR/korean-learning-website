@@ -17,7 +17,8 @@
       }
       #content {
         width: 70%;
-        height: auto;
+        height: 100%;
+        overflow: scroll;
         background-color:rgba(255,255,255, 0.9);
         margin: 0 auto;
         padding-top: 5%;
@@ -110,12 +111,6 @@
       $(".open-link").on('click',function(){
         $("#pronunciation-table").foundation('reveal','open');
       });
-
-      // $(document).ready(function(){
-      //   if ($("#content").height() <= $(window).height()) {
-      //     $("#content").css("height", "100%");
-      //   };
-      // });
     </script>
   </body>
 </html>
