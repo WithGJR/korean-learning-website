@@ -42,7 +42,7 @@
       .button-group li a{
         width: 100%;
       }
-      #section{
+      #menu{
         position: fixed;
         top: 45%;
         left: 0;
@@ -50,7 +50,7 @@
         margin: 0;
         z-index:1;
       }
-      #section a{
+      #menu a{
         color: black;
       }
       .label{
@@ -95,8 +95,8 @@
         }
       }
     </style>
+    <script src="js/vendor/jquery.js"></script>
     <script src="js/react/build/react.js"></script>
-    <script src="js/react/build/JSXTransformer.js"></script>
   </head>
   <body>
     <div class="fixed">
@@ -121,91 +121,24 @@
       </nav>
     </div>
 
-    <ul id="section">
+    <ul id="menu">
       <li><span class="secondary label"><a href="#firstPage">開場影片</a></span></li>
       <li><span class="secondary label"><a href="#secondPage">發音教學</a></span></li>
-       <li><span class="secondary label"><a href="#thirdPage">文法教學</a></span></li>
+      <li><span class="secondary label"><a href="#3rdPage">文法教學</a></span></li>
     </ul>
 
     <div id="fullpage">
       <div class="section">
         <iframe width="420" height="315" src="video/start.mp4" frameborder="0" allowfullscreen></iframe>
       </div>
-      <div class="section" id="video"></div>
-      <script type="text/javascript">
-        var videoItems = [
-          {title: "가 ~ 기 的發音", src: "swf/01.swf"},
-          {title: "나 ~ 니 的發音", src: "swf/02.swf"},
-          {title: "다 ~ 디 的發音", src: "swf/03.swf"},
-          {title: "라 ~ 리 的發音", src: "swf/04.swf"}
-        ];
-      </script>
-      <script type="text/jsx">
-        var VideoContent = React.createClass({
-          render: function() {
-            return (
-              <div id={this.props.id} className="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-                <h3>{this.props.title}</h3>
-                <object width="100%" height="100%;" data={this.props.src}></object>
-                <a className="close-reveal-modal" aria-label="Close">&#215;</a>
-              </div>
-           );
-          }
-        });
+      <div class="section" id="video-section"></div>
+      <div class="section" id="lesson"></div> 
+      <div id="footer">
+        Copyright © Universe Language Learning. All Rights Reserved.
+      </div>
+    </div>
 
-        var VideoContentSection = React.createClass({
-          render: function() {
-            var vidoeContents = this.props.videos.map(function(video, index){
-              <VideoContent id={"video"+String(index)} title={video.title} src={video.src} />
-            });
-
-            return (
-              <div id="video-content">
-                {vidoeContents}
-              </div>
-            );
-          }
-        });
-
-        var VideoItem = React.createClass({
-          render: function() {
-            return (
-              <li><a data-reveal-id={this.props.id} className="reveal-link button info">{this.props.title}</a></li>
-            );
-          }
-        });
-
-        var VideoList = React.createClass({
-          render: function() {
-            var videoList = this.props.videos.map(function(video, index) {
-              return (
-                <VideoItem id={"video"+String(index+1)} title={video.title} />
-              );
-            });
-
-            return (
-              <ul className="button-group even-2">
-                {videoList}
-              </ul>
-            );
-          }
-        }); 
-        var VideoSection = React.createClass({
-          render: function() {
-            return (
-               <div className="content">
-                 <div className="title"><h3>影片發音教學</h3></div>
-                 <VideoList videos={this.props.videos} />
-                 <VideoContentSection videos={this.props.videos} />
-               </div>
-            );
-          }
-        });
-        React.render(<VideoSection videos={videoItems} />, document.getElementById('video'));
-      </script>
-
-      <div class="section" id="lesson"></div>
-      <script type="text/javascript">
+    <script type="text/javascript">
         var lessonInfos = [
           {lesson_name: "嗨/謝謝你", url: "lessons/lesson01.html"},
           {lesson_name: "是/不是", url: "lessons/lesson02.html"},
@@ -225,13 +158,27 @@
       </script>
       <script type="text/javascript" src="js/jsx/lesson_list.js"></script>
 
-      <div id="footer">
-        Copyright © Universe Language Learning. All Rights Reserved.
-      </div>
-    </div>
+    <script type="text/javascript">
+        var videoItems = [
+          {title: "가 ~ 기 的發音", src: "swf/01.swf"},
+          {title: "나 ~ 니 的發音", src: "swf/02.swf"},
+          {title: "다 ~ 디 的發音", src: "swf/03.swf"},
+          {title: "라 ~ 리 的發音", src: "swf/04.swf"},
+          {title: "마 ~ 미 的發音", src: "swf/05.swf"},
+          {title: "바 ~ 비 的發音", src: "swf/06.swf"},
+          {title: "사 ~ 시 的發音", src: "swf/07.swf"},
+          {title: "아 ~ 이 的發音", src: "swf/08.swf"},
+          {title: "자 ~ 지 的發音", src: "swf/09.swf"},
+          {title: "차 ~ 치 的發音", src: "swf/10.swf"},
+          {title: "카 ~ 키 的發音", src: "swf/11.swf"},
+          {title: "타 ~ 티 的發音", src: "swf/12.swf"},
+          {title: "파 ~ 피 的發音", src: "swf/13.swf"},
+          {title: "하 ~ 히 的發音", src: "swf/14.swf"},
+        ];
+    </script>
+    <script type="text/javascript" src="js/jsx/video_list.js"></script>
 
    <!-- foundation -->
-    <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation/foundation.js"></script>
     <script src="js/foundation/foundation.reveal.js"></script>
 
@@ -243,8 +190,8 @@
     <script type="text/javascript">
       $(document).ready(function() {
         $('#fullpage').fullpage({
-          anchors: ['firstPage', 'secondPage', 'thirdPage', 'lastPage'],
-          menu: '#section',
+          anchors: ['firstPage', 'secondPage', '3rdPage'],
+          menu: '#menu',
           scrollBar: true
         });
 
