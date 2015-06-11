@@ -60,6 +60,16 @@ var answerSituation = function() {
   return total;
 }
 
+var getRandomQuestions = function(arr){
+  var newArray = [];
+  while(arr.length > 0){
+    var index = Math.floor(Math.random()*arr.length+1)-1;
+    newArray.push(arr[index]);
+    arr.splice(index, 1);
+  }
+  return newArray;
+}
+
 var Question = React.createClass({displayName: "Question",
   getInitialState: function() {
     return {rightOrNot: null, msg: "", haveClicked: false};
@@ -155,4 +165,5 @@ var Questions = React.createClass({displayName: "Questions",
   }
 });
 
+questions = getRandomQuestions(questions);
 React.render(React.createElement(Questions, {questions: questions}), document.getElementById("question"));
